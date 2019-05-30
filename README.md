@@ -29,14 +29,14 @@ Run the main.no script
 `https://dlfl.no/api/`
 
 #### json body:
-`{"api_key": "your-api-key", "slug": slug, "url": "https://..."}`
+`{"api_key": "your-api-key", "slug": "slug", "url": "https://..."}`
 
 ### PUT (update existing slug)
 
 `https://dlfl.no/api/`
 
 #### json body: 
-`{"api_key": "your-api-key", "slug": slug, "url": "https://..."}`
+`{"api_key": "your-api-key", "slug": "slug", "url": "https://..."}`
 
 
 ### DELETE (delete single slug)
@@ -44,7 +44,7 @@ Run the main.no script
 `https://dlfl.no/api/`
 
 #### json body: 
-`{"api_key": "your-api-key", "slug": slug, "url": "https://..."}`
+`{"api_key": "your-api-key", "slug": "slug"}`
 
 
 ### GET (slug redirect)
