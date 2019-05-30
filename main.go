@@ -5,9 +5,11 @@ import (
 	"github.com/gorilla/mux"
 	"github.com/jinzhu/gorm"
 	_ "github.com/mattn/go-sqlite3"
+	_ "github.com/joho/godotenv/autoload"
 	"github.com/rs/cors"
 	"log"
 	"net/http"
+	"os"
 )
 
 type Link struct {
@@ -24,8 +26,8 @@ type Result struct {
 
 var (
 	gormDB, _  = gorm.Open("sqlite3", "database.db")
-	apiKey     = "your-api-key"
-	defaultUrl = "https://example.com"
+	apiKey     = os.Getenv("APP_KEY")
+	defaultUrl = os.Getenv("DEFAULT_URL")
 	c          = cors.New(cors.Options{
 		AllowedOrigins:   []string{"*"},
 		AllowCredentials: true,
