@@ -13,7 +13,7 @@ Run the main.no script
 `go run main.go`
 
 ## How to use
-When adding a slug with a url, use the root url followed by the slug, like https://example.com/slug, and it will redirect to the url provided with the slug. The redirect is a 301 permanent redirect, meaning services will use the target url meta information.
+When adding a slug with a url, use the root url followed by the slug, like https://example.com/slug, and it will redirect to the url provided with the slug. The redirect is a 307 temporary redirect.
 
 
 

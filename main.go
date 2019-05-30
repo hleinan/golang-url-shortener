@@ -36,16 +36,16 @@ var (
 )
 
 func redirectRootHandler(w http.ResponseWriter, r *http.Request) {
-	http.Redirect(w, r, defaultUrl, 301)
+	http.Redirect(w, r, defaultUrl, 307)
 }
 
 func redirectHandler(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	link := Link{}
 	if gormDB.Where(&Link{Slug: vars["slug"]}).First(&link).RecordNotFound() {
-		http.Redirect(w, r, defaultUrl, 301)
+		http.Redirect(w, r, defaultUrl, 307)
 	} else {
-		http.Redirect(w, r, link.Url, 301)
+		http.Redirect(w, r, link.Url, 307)
 	}
 }
 
@@ -143,6 +143,8 @@ func respondJSON(w http.ResponseWriter, status int, payload interface{}) {
 		return
 	}
 	w.Header().Set("Content-Type", "application/json")
+	w.Header().Set("Cache-Control",  "no-store, no-cache, must-revalidate, post-check=0, pre-check=0")
+	w.Header().Set("Expires",  "Sat, 26 Jul 1997 05:00:00 GMT")
 	w.WriteHeader(status)
 	w.Write([]byte(response))
 }
