@@ -35,14 +35,18 @@ var (
 	})
 )
 
+func redirectRootHandler(w http.ResponseWriter, r *http.Request) {
+	http.Redirect(w, r, defaultUrl, 301)
+}
+
 func redirectHandler(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	link := Link{}
 	if gormDB.Where(&Link{Slug: vars["slug"]}).First(&link).RecordNotFound() {
 		http.Redirect(w, r, defaultUrl, 301)
+	} else {
+		http.Redirect(w, r, link.Url, 301)
 	}
-
-	http.Redirect(w, r, link.Url, 301)
 }
 
 func apiHandler(w http.ResponseWriter, r *http.Request) {
@@ -121,7 +125,7 @@ func main() {
 	r.HandleFunc("/api/", apiHandler).Methods("GET", "POST", "PUT", "DELETE")
 	r.HandleFunc("/api/{slug}", apiSlugHandler).Methods("GET")
 	r.HandleFunc("/{slug}", redirectHandler)
-	r.HandleFunc("/", redirectHandler)
+	r.HandleFunc("/", redirectRootHandler)
 
 	handler := c.Handler(r)
 
