@@ -5,7 +5,7 @@ With a simple REST-interface to created, edit and delete slugs with its correspo
 
 
 ## How to install
-Download this repository, change the appKey and the defaultUrl. run `go get` adn the script is ready to be used.
+Download this repository, change the appKey and the defaultUrl. run `go get` and the script is ready to be used.
 
 ## How to run
 Run the main.no script
