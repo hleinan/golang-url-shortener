@@ -1,11 +1,11 @@
 # golang-url-shortener
 A simple GO url shortener standalone web app.
 
-With a simple REST-interface to created, edit and delete slugs with its URL.
+With a simple REST-interface to created, edit and delete slugs with its corresponding URL. The slugs are saved in a SQLite database.
 
 
 ## How to install
-Download this repository, change the appKey and the defaultUrl
+Download this repository, change the appKey and the defaultUrl. run `go get` adn the script is ready to be used.
 
 ## How to run
 Run the main.no script
