@@ -25,18 +25,18 @@ When adding a slug with a url, use the root url followed by the slug, like https
 
 ### GET (single slug)
 
-`https://dlfl.no/api/slug?api_key=your-api-key`
+`/api/slug?api_key=your-api-key`
 
 ### POST (create new slug)
 
-`https://dlfl.no/api/`
+`/api/`
 
 #### json body:
 `{"api_key": "your-api-key", "slug": "slug", "url": "https://..."}`
 
 ### PUT (update existing slug)
 
-`https://dlfl.no/api/`
+`/api/`
 
 #### json body: 
 `{"api_key": "your-api-key", "slug": "slug", "url": "https://..."}`
@@ -44,7 +44,7 @@ When adding a slug with a url, use the root url followed by the slug, like https
 
 ### DELETE (delete single slug)
 
-`https://dlfl.no/api/`
+`/api/`
 
 #### json body: 
 `{"api_key": "your-api-key", "slug": "slug"}`
@@ -52,4 +52,4 @@ When adding a slug with a url, use the root url followed by the slug, like https
 
 ### GET (slug redirect)
 
-`https://dlfl.no/{slug}`
+`/{slug}`
